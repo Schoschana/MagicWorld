@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FE3-Ib-h51">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -51,7 +51,11 @@
                         <viewLayoutGuide key="safeArea" id="RiG-5I-fER"/>
                     </view>
                     <navigationItem key="navigationItem" title="история малиша " id="bb9-uI-f0v" userLabel="история малиша" colorLabel="IBBuiltInLabel-Green">
-                        <barButtonItem key="leftBarButtonItem" title="Sing Out" id="gH3-70-wca"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sing Out" id="gH3-70-wca">
+                            <connections>
+                                <action selector="signOutTapped:" destination="OsR-3Y-pI0" id="j7F-uh-JiZ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fBO-0Z-lXy">
                             <connections>
                                 <action selector="addTapped:" destination="OsR-3Y-pI0" id="gYL-li-wuv"/>
@@ -74,11 +78,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ihb-dt-l5c">
-                                <rect key="frame" x="40" y="44" width="334" height="402"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ihb-dt-l5c">
+                                <rect key="frame" x="40" y="99" width="334" height="292"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="lbW-nD-YSt">
-                                        <rect key="frame" x="31.5" y="0.0" width="271" height="123"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lbW-nD-YSt">
+                                        <rect key="frame" x="31.5" y="0.0" width="271" height="83"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToDoList" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCA-LD-Gui">
                                                 <rect key="frame" x="39.5" y="0.0" width="192.5" height="53"/>
@@ -87,7 +91,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user does not exist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nt-Lc-Dhp">
-                                                <rect key="frame" x="0.0" y="93" width="271" height="30"/>
+                                                <rect key="frame" x="0.0" y="53" width="271" height="30"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="21"/>
                                                 <color key="textColor" red="0.99907869100000002" green="0.22475203869999999" blue="0.22254028919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -95,7 +99,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0ta-fz-oTc">
-                                        <rect key="frame" x="0.0" y="173" width="334" height="75"/>
+                                        <rect key="frame" x="0.0" y="107" width="334" height="75"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msV-kf-1tj">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -117,12 +121,12 @@
                                             <constraint firstItem="msV-kf-1tj" firstAttribute="leading" secondItem="0ta-fz-oTc" secondAttribute="leading" id="gSM-Tp-elz"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="vqf-j9-RBP">
-                                        <rect key="frame" x="40" y="298" width="254" height="104"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="vqf-j9-RBP">
+                                        <rect key="frame" x="40" y="206" width="254" height="86"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLO-hQ-B3A">
                                                 <rect key="frame" x="40" y="0.0" width="174" height="39"/>
-                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.31753411091549294" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.088028169014084501" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -132,7 +136,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3M-bt-irE">
-                                                <rect key="frame" x="40" y="76" width="174" height="28"/>
+                                                <rect key="frame" x="40" y="58" width="174" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Register">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
