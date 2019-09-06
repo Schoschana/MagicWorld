@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>670503607916-1dcs96i0g217500onqchrtjqm65u6o3n.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.670503607916-1dcs96i0g217500onqchrtjqm65u6o3n</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC5bKD6vcgrVK0RR8BMu5cH7kIhkxOt_bE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>670503607916</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>appLily.TheMagicTheWorldTheYou</string>
+	<key>PROJECT_ID</key>
+	<string>world-5859c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>world-5859c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:670503607916:ios:6a2430c53d31b8acca0249</string>
+	<key>DATABASE_URL</key>
+	<string>https://world-5859c.firebaseio.com</string>
+</dict>
+</plist>
