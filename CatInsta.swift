@@ -14,6 +14,7 @@ struct CatInsta {
     let url: String!
     
     let itemRef: DatabaseReference?
+    
     init( url: String, key: String) {
         self.key = key
         self.url = url

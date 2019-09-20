@@ -78,6 +78,17 @@
                                     <outlet property="delegate" destination="GcK-QS-g4v" id="3ao-LJ-8jz"/>
                                 </connections>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-rS-FSe">
+                                <rect key="frame" x="0.0" y="794" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="add" id="hex-ZR-FMl">
+                                        <connections>
+                                            <action selector="loadImageButtonClicked:" destination="GcK-QS-g4v" id="Oqq-WC-x96"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

@@ -10,8 +10,11 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
+import SDWebImage
 
-class ColViewController: UIViewController, UICollectionViewDataSource {
+
+class ColViewController: UIViewController, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var loginButton: UIBarButtonItem!
    @IBOutlet weak var logoutButton: UIBarButtonItem!
@@ -21,6 +24,7 @@ class ColViewController: UIViewController, UICollectionViewDataSource {
     var images = [CatInsta]()
     
     var dbRef: DatabaseReference!
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +36,16 @@ class ColViewController: UIViewController, UICollectionViewDataSource {
         imageCollection.backgroundColor = .white
     }
       func loadDB() {
-        dbRef.observe(DataEventType.value) { (snapshot) in
-            var newimages = [CatInsta]()
-            
-        }
-
+        dbRef.observe(DataEventType.value, with: { (snapshot) in
+            var newImages = [CatInsta]()
+            for catInstaSnapshot in snapshot.children {
+                let catInstaObject = CatInsta(snapshot: catInstaSnapshot as! DataSnapshot)
+                newImages.append(catInstaObject)
+            }
+            self.images = newImages
             self.imageCollection.reloadData()
-        
+        })
+  
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -77,8 +84,56 @@ class ColViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ imageCollection: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell  {
      let cell = imageCollection.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImageCollectionViewCell
         let image = images[indexPath.row]
-        cell.imageView.image = image;
+        cell.imageView.sd_setImage(with:URL(string: image.url), placeholderImage: UIImage(named: "image1"))
         return cell
+    }
+   
+            
+            
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    dismiss(animated: true, completion: nil)
+    
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            // Data in memory
+            var data = Data()
+            data = UIImageJPEGRepresentation(pickedImage, 0.8)!
+            let imageRef = Storage.storage().reference().child("images/" + randomString(20));
+            _ = imageRef.putData(data, metadata: nil) {
+                (metadata, error) in
+                guard let metadata = metadata else {
+                    return
+                }
+                let downloadURL = metadata.downloadURL()
+                print(downloadURL?.absoluteString ?? "")
+                //let childUpdates = ["/\(key)": images]
+                //self.dbRef.updateChildValues(childUpdates)
+                let key = self.dbRef.childByAutoId().key
+                let image = ["url": downloadURL?.absoluteString]
+                let childUpdates = ["/posts/\(key)": image]
+                self.dbRef.updateChildValues(childUpdates)
+            }
+          }
+     }
+           @IBAction func loadImageButtonClicked(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    func randomString(_ length: Int) -> String {
+        let letters : NSString = "bhhbhbhbhbhbb0090"
+        let len = UInt32(letters.length)
+        var randomstring = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomstring += NSString(characters: &nextChar, length: 1) as String
+            
+            
+        }
+        return randomstring
     }
     
 }
